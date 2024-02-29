@@ -1,14 +1,29 @@
-package App;
+package org.example;
 
 public abstract class Account {
 
+    /**
+     * Login
+     */
     private final String login;
+    /**
+     * Password
+     */
     private String password;
+    /**
+     * Amount
+     */
     private int amount;
 
-    public Account(String login, String password, int amount) {
+    /**
+     * Конструктора класса
+     * @param login Login
+     * @param password Password
+     * @param amount Amount
+     */
+    public Account(String login, String password, int amount){
         if(amount < 0){
-            throw new IllegalArgumentException("Начальный баланс не может быть отрицательным");
+            throw new IllegalArgumentException("Начальный баланс не может быть отрицательным. Вы ввели:" + amount);
         }
         this.login = login;
         this.password = password;
@@ -27,6 +42,7 @@ public abstract class Account {
         this.password = password;
     }
 
+
     public int getAmount() {
         return amount;
     }
@@ -35,6 +51,11 @@ public abstract class Account {
         this.amount = amount;
     }
 
+    /**
+     * Метод для снятия средств
+     * @param count Количество снимаемых средств
+     * @throws InsufficientFundsException Недоствточное количество средств для снятия
+     */
     public void getSomeMoney(int count) throws InsufficientFundsException {
         if(this.amount < count){
             throw new InsufficientFundsException("Не достаточно средств. Текущий баланс = " + this.amount +
@@ -45,7 +66,12 @@ public abstract class Account {
         }
         this.amount -= count;
     }
-    public void putSomeMoney(int count){
+
+    /**
+     * Метод зачисления средств на счёт
+     * @param count Количество зачисляемых средств
+     */
+    public void putSomeMoney(int count) {
         if(count < 0){
             throw new IllegalArgumentException("Для пополнения счёта указано отрицательное число");
         }
