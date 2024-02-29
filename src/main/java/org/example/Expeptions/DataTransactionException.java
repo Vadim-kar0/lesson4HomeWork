@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Expeptions;
 
 public class DataTransactionException extends Exception {
     private int amount;

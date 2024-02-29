@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Expeptions;
 
 public class InsufficientFundsException extends Exception {
 

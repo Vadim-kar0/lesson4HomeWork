@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Expeptions;
 
 public class AmountTransactionException extends Exception {
     private final int fromAmount;

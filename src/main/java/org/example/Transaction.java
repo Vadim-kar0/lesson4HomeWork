@@ -1,5 +1,8 @@
 package org.example;
 
+import org.example.Expeptions.AmountTransactionException;
+import org.example.Expeptions.DataTransactionException;
+
 public class Transaction {
 
     /**
